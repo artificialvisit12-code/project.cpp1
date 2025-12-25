@@ -1,0 +1,50 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function to check if a keyword exists in the text
+bool contains(string text, string keyword) {
+    if (text.find(keyword) != string::npos) {
+        return true;
+    }
+    return false;
+}
+
+int main() {
+    string text;
+    cout << "Enter a sentence: ";
+    getline(cin, text);
+    // Emotion keyword arrays
+    string happyWords[3] = {"happy", "good", "great"};
+    string sadWords[3] = {"sad", "cry", "upset"};
+    string angryWords[3] = {"angry", "hate", "shout"};
+
+    // Check happy words
+    for (int i = 0; i < 3; i++) {
+        if (contains(text, happyWords[i])) {
+            cout << "Emotion: Happy";
+            return 0;
+        }
+    }
+
+    // Check sad words
+    for (int i = 0; i < 3; i++) {
+        if (contains(text, sadWords[i])) {
+            cout << "Emotion: Sad";
+            return 0;
+        }
+    }
+
+    // Check angry words
+    for (int i = 0; i < 3; i++) {
+        if (contains(text, angryWords[i])) {
+            cout << "Emotion: Angry";
+            return 0;
+        }
+    }
+
+    // Default emotion
+    cout << "Emotion: Neutral";
+
+    return 0;
+}
